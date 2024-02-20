@@ -137,7 +137,7 @@ const Logs = () => {
       <Header title="Logs" subtitle="Administration des Logs" />
       {loading && <div className='ml-4 font-semibold italic'> Chargement... </div>}
       <div className='flex gap-6 justify-center w-full'>
-        <div className=' mt-8 bg-blue-100 max-w-full h-[1000px] min-w-[800px] w-fit rounded-md shadow-xl p-6'>
+        <div className=' mt-8 bg-blue-100 max-w-full h-[1000px] min-w-[600px] w-[600px] rounded-md shadow-xl p-6'>
           <div className='flex flex-col h-full'>
             <div className='w-full flex justify-between items-center'>
               <h4 className='font-semibold italic p-2'>History.log</h4>
@@ -154,7 +154,7 @@ const Logs = () => {
             </pre>
           </div>
         </div>
-        <div className=' mt-8 bg-blue-100 max-w-full h-[1000px] min-w-[800px] w-fit rounded-md shadow-xl p-6'>
+        <div className=' mt-8 bg-blue-100 max-w-full h-[1000px] min-w-[600px] w-[600px] rounded-md shadow-xl p-6'>
           <div className='flex flex-col h-full'>
             <div className='w-full flex justify-between items-center'>
               <h4 className='font-semibold italic p-2'>Error.log</h4>
