@@ -16,6 +16,7 @@ const Logs = () => {
   const [errorsLogs, setErrorsLogs] = useState("")
   const [historyLogs, setHistoryLogs] = useState("")
   const [showDialog, setShowDialog] = useState(false);
+  const [logTitle, setLogTitle] = useState("")
   const [dialogContent, setDialogContent] = useState("")
   const [openHistoryDeleteDialog, setOpenHistoryDeleteDialog] = useState(false);
   const [openErrorsDeleteDialog, setOpenErrorsDeleteDialog] = useState(false);
@@ -76,12 +77,14 @@ const Logs = () => {
   const showHistoryLogsInFullWindow = () => {
     //open a dialog with the history logs
     setDialogContent(historyLogs);
+    setLogTitle('Historique d\'exécution');
     setShowDialog(true);
   }
 
   const showErrorLogsInFullWindow = () => {
     //open a dialog with the error logs
     setDialogContent(errorsLogs);
+    setLogTitle('Erreurs')
     setShowDialog(true);
     
   }
@@ -140,7 +143,7 @@ const Logs = () => {
         <div className=' mt-8 bg-blue-100 max-w-full h-[1000px] min-w-[600px] w-[600px] rounded-md shadow-xl p-6'>
           <div className='flex flex-col h-full'>
             <div className='w-full flex justify-between items-center'>
-              <h4 className='font-semibold italic p-2'>History.log</h4>
+              <h4 className='font-semibold italic p-2'>Historique d'exécution</h4>
               {historyLoading && <div className='ml-4 font-semibold italic'> Chargement... </div>}
               <div className='flex gap-2 items-center'>
                 <TfiNewWindow className='cursor-pointer' title='Open in new window' size={22} onClick={showHistoryLogsInFullWindow} />
@@ -157,7 +160,7 @@ const Logs = () => {
         <div className=' mt-8 bg-blue-100 max-w-full h-[1000px] min-w-[600px] w-[600px] rounded-md shadow-xl p-6'>
           <div className='flex flex-col h-full'>
             <div className='w-full flex justify-between items-center'>
-              <h4 className='font-semibold italic p-2'>Error.log</h4>
+              <h4 className='font-semibold italic p-2'>Erreurs</h4>
               {errorsLoading && <div className='ml-4 font-semibold italic'> Chargement... </div>}
               <div className='flex gap-2 items-center'>
                 <TfiNewWindow className='cursor-pointer' title='Open in new window' size={22} onClick={showErrorLogsInFullWindow} />
@@ -175,6 +178,7 @@ const Logs = () => {
 
       {showDialog && (
         <FullScreenDialog
+          title={logTitle}
           logs={dialogContent}
           onClose={handleCloseDialog}
         />
@@ -204,12 +208,12 @@ const Logs = () => {
 }
 
 
-const FullScreenDialog = ({ logs, onClose }: { logs: string, onClose: () => void }) => {
+const FullScreenDialog = ({ title, logs, onClose }: { title: string, logs: string, onClose: () => void }) => {
   return (
     <div className='fixed top-0 left-0 z-50 w-full h-full bg-black bg-opacity-50 flex justify-center items-center'>
       <div className='bg-white w-[90%] h-[90%] rounded-md shadow-xl p-6'>
         <div className='flex justify-between items-center'>
-          <h4 className='font-semibold italic p-2'> Logs </h4>
+          <h4 className='font-semibold italic p-2 capitalize'> {title} </h4>
           <IoCloseSharp className='cursor-pointer' title='Close' size={30} onClick={onClose} />
         </div>
         <pre 
