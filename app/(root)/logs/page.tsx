@@ -22,11 +22,12 @@ const Logs = () => {
   const [openErrorsDeleteDialog, setOpenErrorsDeleteDialog] = useState(false);
   const [date, setDate] = useState(new Date());
 
+ // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    getHistoryLogs()
-    getErrorsLogs()
-    setLoading(false)
-  }, [])
+    getHistoryLogs();
+    getErrorsLogs();
+    setLoading(false);
+  }, []);
 
   const getHistoryLogs = async () => {
     setHistoryLoading(true)
@@ -143,7 +144,7 @@ const Logs = () => {
         <div className=' mt-8 bg-blue-100 max-w-full h-[1000px] min-w-[600px] w-[600px] rounded-md shadow-xl p-6'>
           <div className='flex flex-col h-full'>
             <div className='w-full flex justify-between items-center'>
-              <h4 className='font-semibold italic p-2'>Historique d'exécution</h4>
+              <h4 className='font-semibold italic p-2'>Historique d&apos;exécution</h4>
               {historyLoading && <div className='ml-4 font-semibold italic'> Chargement... </div>}
               <div className='flex gap-2 items-center'>
                 <TfiNewWindow className='cursor-pointer' title='Open in new window' size={22} onClick={showHistoryLogsInFullWindow} />

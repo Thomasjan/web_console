@@ -73,7 +73,7 @@ const Home = () => {
       <div className=' mt-8 w-full bg-blue-100 h-96 rounded-md shadow-xl p-6 flex flex-col gap-8'>
         <div className='flex items-center'>
           <button onClick={testAPIStatus} className='mr-4 bg-primary-400 text-white px-4 py-2 rounded-md hover:bg-primary-100'>Tester</button>
-          <h2 className='font-bold'>Connexion à l'API :</h2>
+          <h2 className='font-bold'>Connexion à l&apos;API :</h2>
           {apiStatusLoading && <div className='ml-4 font-semibold italic'> Chargement... </div>}
           {apiStatus && !apiStatusLoading && <GrStatusGood size={26} className='ml-4 text-green-500' />}
           {!apiStatus && !apiStatusLoading && <GrStatusWarning size={26} className='ml-4 text-red-500' />}
@@ -81,7 +81,7 @@ const Home = () => {
 
         <div className='flex items-center'>
           <button onClick={testConnexionKazeERP} className='mr-4 bg-primary-400 text-white px-4 py-2 rounded-md hover:bg-primary-100'>Tester</button>
-          <h2 className='font-bold'>Connexion à l'ERP : </h2>
+          <h2 className='font-bold'>Connexion à l&apos;ERP : </h2>
           {connexionKazeERPLoading && <div className='ml-4 font-semibold italic'> Chargement... </div>}
           {apiErpStatus && !connexionKazeERPLoading && <GrStatusGood size={26} className='ml-4 text-green-500' />}
           {!apiErpStatus && !connexionKazeERPLoading && <GrStatusWarning size={26} className='ml-4 text-red-500' />}
