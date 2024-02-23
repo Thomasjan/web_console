@@ -8,8 +8,10 @@ import React from 'react'
 const Sidebar = () => {
 
     const pathname = usePathname()
+
   return (
     <aside className='sidebar'>
+       
         <div className='flex size-full flex-col gap-4'>
             <Link href='/' className='sidebar-logo'>
                 <Image src='/assets/images/gestimum_banner.png' alt='logo' width={180} height={280} />

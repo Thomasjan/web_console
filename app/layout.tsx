@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
-const inter = Inter({ subsets: ["latin"] });
+const IBMPlex = IBM_Plex_Sans({ 
+  subsets: ["latin"] ,
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-ibm-plex'
+});
 
 export const metadata: Metadata = {
   title: "Web Console",
-  description: "Console Web ERP - KAZE",
+  description: "Console Web d'administration.",
 };
 
 export default function RootLayout({
@@ -15,10 +20,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        {children}
-      </body>
-    </html>
+      <html lang="en">
+        <body className={cn("font-IBMPlex antialiased", IBMPlex.variable)}>
+          {children}
+        </body>
+      </html>
   );
 }
