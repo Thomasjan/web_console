@@ -10,14 +10,14 @@ export const navLinks = [
       icon: <GrHomeOption size={24} />,
     },
     {
-      label: "Requêtes",
-      route: "/requests",
-      icon: <TbRouteAltLeft size={24} />,
-    },
-    {
       label: "Logs",
       route: "/logs",
       icon: <FaFileAlt size={24} />,
+    },
+    {
+      label: "Requêtes",
+      route: "/requests",
+      icon: <TbRouteAltLeft size={24} />,
     },
     
     {

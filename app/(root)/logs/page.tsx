@@ -269,8 +269,8 @@ const DeleteDialog = ({ open, onClose, onConfirm, handleSetDate }: { open: boole
           <h4 className='font-semibold italic p-2'> Suppression des logs </h4>
           <IoCloseSharp className='cursor-pointer' title='Close' size={30} onClick={onClose} />
         </div>
-        <div className='flex flex-col gap-4 items-center'>
-          <p>Etes vous sûr de vouloir supprimer les logs avant cette date ?</p>
+        <div className='flex flex-col gap-4 items-center mt-8'>
+          <p>Choisissez une date. <br /> Tous les logs avant cette date seront supprimés.</p>
           <input 
             type='datetime-local' 
             value={date.toISOString().slice(0, 16)} 
@@ -279,13 +279,14 @@ const DeleteDialog = ({ open, onClose, onConfirm, handleSetDate }: { open: boole
           />
           <div className='flex gap-4'>
             <button 
-              className='bg-red-500 text-white p-2 rounded-md shadow-md hover:bg-red-600'
+              className='outline text-primary-100 outline-2 p-2 rounded-md shadow-md hover:opacity-85'
               onClick={onClose}
             >
               Retour
             </button>
             <button 
-              className='bg-green-500 text-white p-2 rounded-md shadow-md hover:bg-green-600'
+              className='outline text-primary-100 outline-2 p-2 rounded-md shadow-md hover:opacity-85'
+              disabled={loading}
               onClick={Confirm}
             >
               {loading ? 'Chargement...' : 'Confirmer'}
