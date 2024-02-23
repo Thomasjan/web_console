@@ -140,9 +140,30 @@ const Logs = () => {
     <div>
       <Header title="Logs" subtitle="Administration des Logs" />
       {loading && <div className='ml-4 font-semibold italic'> Chargement... </div>}
-      <div className='flex gap-6 justify-center w-full'>
-        <div className=' mt-8 bg-blue-100 max-w-full h-[1000px] min-w-[600px] w-[600px] rounded-md shadow-xl p-6'>
-          <div className='flex flex-col h-full'>
+      <div className='flex flex-col gap-6 justify-center items-center w-full'>
+        
+        <div className='mt-8 bg-blue-100 max-w-full min-h-[400px] w-full max-h-[80vh] rounded-md shadow-xl p-6'>
+          <div className='flex flex-col max-h-[80vh] h-full pb-8'>
+            <div className='w-full flex justify-between items-center h-full'>
+              <h4 className='font-semibold italic p-2'>Erreurs</h4>
+              {errorsLoading && <div className='ml-4 font-semibold italic'> Chargement... </div>}
+              <div className='flex gap-2 items-center'>
+                <TfiNewWindow className='cursor-pointer' title='Open in new window' size={22} onClick={showErrorLogsInFullWindow} />
+                <GrRefresh className='cursor-pointer' title='Refresh' size={22} onClick={getErrorsLogs} />
+                <FcFullTrash className='cursor-pointer' title='Clear' size={22} onClick={() => setOpenErrorsDeleteDialog(true)} />
+              </div>
+            </div>
+            <div className='overflow-auto max-h-full bg-gray-100'>
+              <pre 
+                className=' rounded-md shadow-md  h-full w-full'
+                dangerouslySetInnerHTML={{ __html: errorsLogs }}>
+              </pre>
+            </div>
+          </div>
+        </div>
+
+        <div className=' mt-8 bg-blue-100 max-w-full max-h-[80vh] min-h-[400px] w-full rounded-md shadow-xl p-6'>
+          <div className='flex flex-col h-full max-h-[80vh] pb-8'>
             <div className='w-full flex justify-between items-center'>
               <h4 className='font-semibold italic p-2'>Historique d&apos;exécution</h4>
               {historyLoading && <div className='ml-4 font-semibold italic'> Chargement... </div>}
@@ -152,29 +173,15 @@ const Logs = () => {
                 <FcFullTrash className='cursor-pointer' title='Clear' size={22} onClick={()=> setOpenHistoryDeleteDialog(true)} />
               </div>
             </div>
-            <pre 
-              className='bg-gray-100 rounded-md shadow-md overflow-auto h-full w-full'
-              dangerouslySetInnerHTML={{ __html: historyLogs }}>
-            </pre>
-          </div>
-        </div>
-        <div className=' mt-8 bg-blue-100 max-w-full h-[1000px] min-w-[600px] w-[600px] rounded-md shadow-xl p-6'>
-          <div className='flex flex-col h-full'>
-            <div className='w-full flex justify-between items-center'>
-              <h4 className='font-semibold italic p-2'>Erreurs</h4>
-              {errorsLoading && <div className='ml-4 font-semibold italic'> Chargement... </div>}
-              <div className='flex gap-2 items-center'>
-                <TfiNewWindow className='cursor-pointer' title='Open in new window' size={22} onClick={showErrorLogsInFullWindow} />
-                <GrRefresh className='cursor-pointer' title='Refresh' size={22} onClick={getErrorsLogs} />
-                <FcFullTrash className='cursor-pointer' title='Clear' size={22} onClick={() => setOpenErrorsDeleteDialog(true)} />
-              </div>
+            <div className='overflow-auto max-h-full'>
+              <pre 
+                className='bg-gray-100 rounded-md shadow-md h-full w-full'
+                dangerouslySetInnerHTML={{ __html: historyLogs }}>
+              </pre>
             </div>
-            <pre 
-              className='bg-gray-100 rounded-md shadow-md overflow-auto h-full w-full'
-              dangerouslySetInnerHTML={{ __html: errorsLogs }}>
-            </pre>
           </div>
         </div>
+
       </div>
 
       {showDialog && (
