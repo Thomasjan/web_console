@@ -10,7 +10,7 @@ export const navLinks = [
       icon: <GrHomeOption size={24} />,
     },
     {
-      label: "Logs",
+      label: "Journal d'évènements",
       route: "/logs",
       icon: <FaFileAlt size={24} />,
     },

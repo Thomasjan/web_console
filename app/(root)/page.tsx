@@ -70,7 +70,7 @@ const Home = () => {
   return (
     <div>
       <Header title="Accueil" subtitle="Console d'administration ERP - KAZE" />
-      <div className=' mt-8 w-full bg-blue-100 h-96 rounded-md shadow-xl p-6 flex flex-col gap-8'>
+      <div className=' mt-8 w-[400px] sm:w-4/6 bg-blue-100 h-96 rounded-md shadow-xl p-6 flex flex-col gap-8'>
         <div className='flex items-center'>
           <button onClick={testAPIStatus} className='mr-4 bg-primary-400 text-white px-4 py-2 rounded-md hover:bg-primary-100'>Tester</button>
           <h2 className='font-bold'>Connexion à l&apos;API :</h2>

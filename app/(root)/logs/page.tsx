@@ -138,7 +138,7 @@ const Logs = () => {
 
   return (
     <div>
-      <Header title="Logs" subtitle="Administration des Logs" />
+      <Header title="Journal d'évènements" subtitle="Administration des journaux" />
       {loading && <div className='ml-4 font-semibold italic'> Chargement... </div>}
       <div className='flex flex-col gap-6 justify-center items-center w-full'>
         
@@ -148,9 +148,9 @@ const Logs = () => {
               <h4 className='font-semibold italic p-2'>Erreurs</h4>
               {errorsLoading && <div className='ml-4 font-semibold italic'> Chargement... </div>}
               <div className='flex gap-2 items-center'>
-                <TfiNewWindow className='cursor-pointer' title='Open in new window' size={22} onClick={showErrorLogsInFullWindow} />
-                <GrRefresh className='cursor-pointer' title='Refresh' size={22} onClick={getErrorsLogs} />
-                <FcFullTrash className='cursor-pointer' title='Clear' size={22} onClick={() => setOpenErrorsDeleteDialog(true)} />
+                <TfiNewWindow className='cursor-pointer' title='Agrandir' size={22} onClick={showErrorLogsInFullWindow} />
+                <GrRefresh className='cursor-pointer' title='Rafraichir' size={22} onClick={getErrorsLogs} />
+                <FcFullTrash className='cursor-pointer' title='Supprimer' size={22} onClick={() => setOpenErrorsDeleteDialog(true)} />
               </div>
             </div>
             <div className='overflow-auto max-h-full bg-gray-100'>
@@ -168,9 +168,9 @@ const Logs = () => {
               <h4 className='font-semibold italic p-2'>Historique d&apos;exécution</h4>
               {historyLoading && <div className='ml-4 font-semibold italic'> Chargement... </div>}
               <div className='flex gap-2 items-center'>
-                <TfiNewWindow className='cursor-pointer' title='Open in new window' size={22} onClick={showHistoryLogsInFullWindow} />
-                <GrRefresh className='cursor-pointer' title='Refresh' size={22} onClick={getHistoryLogs} />
-                <FcFullTrash className='cursor-pointer' title='Clear' size={22} onClick={()=> setOpenHistoryDeleteDialog(true)} />
+                <TfiNewWindow className='cursor-pointer' title='Agrandir' size={22} onClick={showHistoryLogsInFullWindow} />
+                <GrRefresh className='cursor-pointer' title='Rafraichir' size={22} onClick={getHistoryLogs} />
+                <FcFullTrash className='cursor-pointer' title='Supprimer' size={22} onClick={()=> setOpenHistoryDeleteDialog(true)} />
               </div>
             </div>
             <div className='overflow-auto max-h-full'>
