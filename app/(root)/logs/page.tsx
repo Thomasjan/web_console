@@ -34,8 +34,8 @@ const Logs = () => {
     try {
       const response = await fetch(URL + '/history')
       const data = await response.json()
-      //transform date format 2024-01-10T10:32:52.660Z to 2024-01-10 10:32:52 in color blue
-      let logs = data.replace(/(\d{4}-\d{2}-\d{2})T(\d{2}:\d{2}:\d{2}).\d{3}Z/g, '<span class="text-blue-500">$1 $2</span>');
+      //transform date format 2024-02-26T16:27:44+01:00  to 2024-02-26 16:27:44 in color blue
+      let logs = data.replace(/(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2})\+\d{2}:\d{2}/g, '<span class="text-blue-500">$1</span>');
       //replace [createJobsScript] with color green and [getJobsScript] with color orange
       logs = logs.replace(/\[createJobsScript\]/g, '<span class="text-orange-600">[createJobsScript]</span>');
       logs = logs.replace(/\[getJobsScript\]/g, '<span class="text-orange-400">[getJobsScript]</span>');
@@ -71,9 +71,6 @@ const Logs = () => {
       setErrorsLoading(false)
     }
   }
-
-  
-
 
   const showHistoryLogsInFullWindow = () => {
     //open a dialog with the history logs
