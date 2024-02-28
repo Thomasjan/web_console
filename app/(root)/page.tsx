@@ -149,8 +149,8 @@ const Home = () => {
     try {
       const response = await fetch(`${process.env.KAZE_API_URL}/v1/scripts/statusCreateJobs`)
       const data = await response.json()
-      if(data.status == 'success') setStatusCreateJobsScript(true)
-      if(data.status == 'warning') {
+      if(data.status == "success") setStatusCreateJobsScript(true)
+      if(data.status == "warning") {
         setStatusCreateJobsScript(false)
         toast({
           className: cn(
@@ -164,7 +164,6 @@ const Home = () => {
         });
       }
 
-      else setStatusCreateJobsScript(false)
     } catch (error) {
       console.error('Error:', error)
       setStatusCreateJobsScript(false)
@@ -194,7 +193,6 @@ const Home = () => {
         });
       } 
       
-      else setStatusCreateJobsScript(false)
     } catch (error) {
       console.error('Error:', error)
       setStatusGetJobsScript(false)
