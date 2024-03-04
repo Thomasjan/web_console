@@ -24,7 +24,7 @@ const Logs = () => {
 
  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
-    getHistoryLogs();
+    // getHistoryLogs();
     getErrorsLogs();
     setLoading(false);
   }, []);
@@ -159,7 +159,7 @@ const Logs = () => {
           </div>
         </div>
 
-        <div className=' mt-8 bg-blue-100 max-w-full max-h-[80vh] min-h-[400px] w-full rounded-md shadow-xl p-6'>
+        {/* <div className=' mt-8 bg-blue-100 max-w-full max-h-[80vh] min-h-[400px] w-full rounded-md shadow-xl p-6'>
           <div className='flex flex-col h-full max-h-[80vh] pb-8'>
             <div className='w-full flex justify-between items-center'>
               <h4 className='font-semibold italic p-2'>Historique d&apos;exécution</h4>
@@ -177,7 +177,7 @@ const Logs = () => {
               </pre>
             </div>
           </div>
-        </div>
+        </div> */}
 
       </div>
 
