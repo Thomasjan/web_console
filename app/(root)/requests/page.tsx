@@ -41,11 +41,11 @@ const Requests = () => {
       <Header title="Requêtes" subtitle="Déclenchement des requêtes" />
       <div className='mt-8 bg-blue-200 rounded-md p-6 w-[600px] flex flex-col gap-6'>
         <div className='item-center flex gap-4'>
-          <span>Redémarrer le script de création</span>
+          <span>Redémarrer le script d'envoie des Missions</span>
           <IoReload size={26} className='text-4xl cursor-pointer hover:text-green-600' onClick={()=> reloadScriptCreateJobs()} />
         </div>
         <div className='item-center flex gap-4'>
-          <span>Redémarrer le script de récupération</span>
+          <span>Redémarrer le script de récupération des Missions</span>
           <IoReload size={26} className='text-4xl cursor-pointer hover:text-green-600' onClick={()=> reloadScriptGetJobs()} />
         </div>
       </div>

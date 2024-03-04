@@ -57,12 +57,11 @@ const Logs = () => {
     try {
       const response = await fetch(URL + '/errors')
       const data = await response.json()
-      //replace "timestamp":"2024-01-15T14:56:06.308Z" with color blue
-      let logs = data.replace(/("timestamp":"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.\d{3}Z")/g, '<span class="text-blue-500">$1</span>');
-      //replace :"error" with color red
-      logs = logs.replace(/("error")/g, '<span class="text-red-500">$1</span>');
-      //replace content between " "  format "message":"example of message" with color purple
-      logs = logs.replace(/("message":")(.+?)(")/g, '<span class="text-blue-700">$1$2$3</span>');
+      //example of log: 2024-03-04 10:55:33 [error]: This is an error message
+      //transform date format 2024-03-04 10:55:33 in blue
+      let logs = data.replace(/(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})/g, '<span class="text-blue-500">$1</span>');
+      //replace [error] with color red
+      logs = logs.replace(/\[error\]/g, '<span class="text-red-500">[error]</span>');
       setErrorsLogs(logs)
       setErrorsLoading(false)
     } catch (error: any) {
@@ -270,7 +269,7 @@ const DeleteDialog = ({ open, onClose, onConfirm, handleSetDate }: { open: boole
           <p>Choisissez une date. <br /> Tous les logs avant cette date seront supprimés.</p>
           <input 
             type='datetime-local' 
-            value={date.toISOString().slice(0, 16)} 
+            value={new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().slice(0, 16)}  
             onChange={handleDateChange}
             className='p-2 rounded-md border border-gray-300' 
           />
