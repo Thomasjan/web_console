@@ -3,13 +3,12 @@ import Header from '@/components/shared/Header'
 import React, { useEffect, useState } from 'react'
 import { GrRefresh } from "react-icons/gr";
 import { TfiNewWindow } from "react-icons/tfi";
-import { FcFullTrash } from "react-icons/fc";
+import { FcFullTrash, FcDownload } from "react-icons/fc";
 import { IoCloseSharp } from "react-icons/io5";
 
 const Logs = () => {
 
   const URL = process.env.KAZE_API_URL + '/v1/logs'
-  const [loading, setLoading] = useState(true)
   const [historyLoading, setHistoryLoading] = useState(true)
   const [errorsLoading, setErrorsLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -26,7 +25,6 @@ const Logs = () => {
   useEffect(() => {
     // getHistoryLogs();
     getErrorsLogs();
-    setLoading(false);
   }, []);
 
   const getHistoryLogs = async () => {
@@ -130,12 +128,28 @@ const Logs = () => {
     console.log('date:', date)
     setDate(date)
   }
+
+  const downloadFile = () => {
+     // Remove HTML tags from the errorsLogs string
+     const cleanedLogs = errorsLogs.replace(/<[^>]+>/g, '');
+
+     // Create a Blob object with the cleanedLogs
+     const blob = new Blob([cleanedLogs], { type: 'text/plain' });
+ 
+     // Create a temporary anchor element
+     const anchor = document.createElement('a');
+    anchor.href = window.URL.createObjectURL(blob);
+    const dateFormatted = new Date().toISOString().slice(0, 10);
+    anchor.download = `errors${dateFormatted}.log`; // Set the file name for download
+
+    // Programmatically click the anchor to trigger download
+    anchor.click();
+  }
   
 
   return (
     <div>
       <Header title="Journal d'évènements" subtitle="Administration des journaux" />
-      {loading && <div className='ml-4 font-semibold italic'> Chargement... </div>}
       <div className='flex flex-col gap-6 justify-center items-center w-full'>
         
         <div className='mt-8 bg-blue-100 max-w-full min-h-[400px] w-full max-h-[80vh] rounded-md shadow-xl p-6'>
@@ -147,6 +161,7 @@ const Logs = () => {
                 <TfiNewWindow className='cursor-pointer' title='Agrandir' size={22} onClick={showErrorLogsInFullWindow} />
                 <GrRefresh className='cursor-pointer' title='Rafraichir' size={22} onClick={getErrorsLogs} />
                 <FcFullTrash className='cursor-pointer' title='Supprimer' size={22} onClick={() => setOpenErrorsDeleteDialog(true)} />
+                <FcDownload className='cursor-pointer' title='Télécharger' size={22} onClick={downloadFile} />
               </div>
             </div>
             <div className='overflow-auto max-h-full bg-gray-100'>
