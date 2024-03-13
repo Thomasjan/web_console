@@ -140,7 +140,7 @@ const Logs = () => {
      const anchor = document.createElement('a');
     anchor.href = window.URL.createObjectURL(blob);
     const dateFormatted = new Date().toISOString().slice(0, 10);
-    anchor.download = `errors${dateFormatted}.log`; // Set the file name for download
+    anchor.download = `errors_${dateFormatted}.log`; // Set the file name for download
 
     // Programmatically click the anchor to trigger download
     anchor.click();
