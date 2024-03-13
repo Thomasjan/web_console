@@ -28,7 +28,7 @@ const Home = () => {
     testKazeCredentials()
     getCreateJobsScriptStatus()
     getGetJobsScriptStatus()
-  })
+  }, [])
 
   const testAPIStatus = async () => {
     setApiStatusLoading(true)
