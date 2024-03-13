@@ -30,6 +30,7 @@ const Home = () => {
     getGetJobsScriptStatus()
   }, [])
 
+  
   const testAPIStatus = async () => {
     setApiStatusLoading(true)
     //wait for 2 seconds
@@ -48,7 +49,7 @@ const Home = () => {
           title: "Erreur",
           description: "Le serveur Kaze API est inaccessible",
           variant: "destructive",
-          duration: 8000,
+          duration:6000,
           
         });
       } 
@@ -61,7 +62,7 @@ const Home = () => {
         title: "Erreur",
         description: "Le serveur Kaze API est inaccessible",
         variant: "destructive",
-        duration: 8000,
+        duration: 6000,
         
       });
       setApiStatus(false)
@@ -85,7 +86,7 @@ const Home = () => {
           title: "Erreur",
           description: "La connexion à l'ERP est impossible",
           variant: "destructive",
-          duration: 8000,
+          duration: 6000,
           
         });
       }
@@ -122,7 +123,7 @@ const Home = () => {
           title: "Erreur",
           description: "La connexion à Kaze est impossible: Vos identifiants sont incorrects",
           variant: "destructive",
-          duration: 8000,
+          duration: 6000,
           
         });
       }
@@ -135,7 +136,7 @@ const Home = () => {
         title: "Erreur",
         description: "La connexion à Kaze est impossible",
         variant: "destructive",
-        duration: 8000,
+        duration: 6000,
         
       });
       setKazeCredentialsStatus(false)
@@ -159,7 +160,7 @@ const Home = () => {
           title: "Attention",
           description: data.message,
           variant: "destructive",
-          duration: 8000,
+          duration: 6000,
           
         });
       }
@@ -188,8 +189,7 @@ const Home = () => {
           title: "Attention",
           description: data.message,
           variant: "destructive",
-          duration: 8000,
-          
+          duration: 6000,
         });
       } 
       
