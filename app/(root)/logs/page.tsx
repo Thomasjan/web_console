@@ -27,7 +27,7 @@ const Logs = () => {
     // getHistoryLogs();
     getErrorsLogs();
     setLoading(false);
-  }, []);
+  });
 
   const getHistoryLogs = async () => {
     setHistoryLoading(true)
